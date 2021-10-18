@@ -1,39 +1,46 @@
 <?php
 
-$auswahl = readline();
+include("functions_covid.php");
 
-$url = "https://covid2019-api.herokuapp.com/v2/country/";
-$country = readline("Land: ");
-$url .= $country;
 
-$headers = array(
-    'Accept: application/json',
-    'Content-Type: application/json',
+
+$auswahl = array(
+    "Länder-Zahlen",
+    "noch unbekannt"
 );
 
-$curl = curl_init();
-curl_setopt($curl, CURLOPT_URL, $url);
-curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+echo PHP_EOL;
+echo "Auswahl:";
+echo PHP_EOL;
+foreach ($auswahl as $index => $value) {
+    printf('%d: %s', $index, $value);
+    echo PHP_EOL;
+}
 
-$response = curl_exec($curl);
-$code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-curl_close($curl);
-
-if ($code == 200) {
-    $response = json_decode($response, true);
-    //print_r($response);
-    print PHP_EOL;
-
-    $confirmed = $response['data']['confirmed'];
-    $deaths = $response['data']['deaths']);
-
-
-    printf("%s" . PHP_EOL, $response['data']['location']);
-    printf("Confirmed: %d" . PHP_EOL, $confirmed);
-    printf("Deaths: %d" . PHP_EOL, $deaths);
-    printf("Recovered: %d" . PHP_EOL, $response['data']['recovered']);
-    printf("Active: %d" . PHP_EOL, $response['data']['active']);
+$eingabe = readline('Ihre Wahl: ');
+if (is_numeric($eingabe)) {
+    if ($eingabe >= count($auswahl)) {
+    } else {
+        echo "Sie haben \"$auswahl[$eingabe]\" gewählt!";
+        print PHP_EOL;
+        print PHP_EOL;
+        switch ($eingabe) {
+            case '0':
+                landZahlen();
+                break;
+            case '1':
+                nochUnbekant();
+                break;
+            case '2':
+                dreiReihe();
+                break;
+            case '3':
+                subtraktion();
+                break;
+            default:
+        }
+        echo PHP_EOL;
+    }
+} else {
+    print "Ungültige Eingabe";
 }
