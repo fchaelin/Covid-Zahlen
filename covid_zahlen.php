@@ -1,21 +1,15 @@
 <?php
 
-$url = "https://randomname.de/";
+$auswahl = readline();
 
-$params = array(
-  "count" => "3",     // gewünschte Anzahl der Resultate
-  "gender" => "b",    // männliche und weibliche User generieren
-  "minAge" => "18",   // minimale Alter der Nutzer
-  "format" => "json"  // Typ des Ausgabeformat
-);
+$url = "https://covid2019-api.herokuapp.com/v2/country/";
+$country = readline("Land: ");
+$url .= $country;
 
-// Abhängig von der API, hier json
 $headers = array(
     'Accept: application/json',
     'Content-Type: application/json',
 );
-
-$url .= '?' . http_build_query($params);
 
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $url);
@@ -28,21 +22,18 @@ $response = curl_exec($curl);
 $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 curl_close($curl);
 
-# header('Content-Type: application/json; charset=utf-8');
-
 if ($code == 200) {
     $response = json_decode($response, true);
-    echo "Got " . count($response) . " entries ..." . PHP_EOL;
-    // Show the json response array to find the keys ...
-    print_r($response);
-    // Loop over array items
-    for ($i = 0; $i < count($response); $i++) {
-        print PHP_EOL;
-        // Output array item using the appropriate key
-        printf("%s %s" . PHP_EOL, $response[$i]['firstname'], $response[$i]['lastname']);
-        printf("%d %s" . PHP_EOL, $response[$i]['location']['zip'], $response[$i]['location']['city']);
-        print PHP_EOL;
-    }
-} else {
-    echo 'error ' . $code;
+    //print_r($response);
+    print PHP_EOL;
+
+    $confirmed = $response['data']['confirmed'];
+    $deaths = $response['data']['deaths']);
+
+
+    printf("%s" . PHP_EOL, $response['data']['location']);
+    printf("Confirmed: %d" . PHP_EOL, $confirmed);
+    printf("Deaths: %d" . PHP_EOL, $deaths);
+    printf("Recovered: %d" . PHP_EOL, $response['data']['recovered']);
+    printf("Active: %d" . PHP_EOL, $response['data']['active']);
 }
