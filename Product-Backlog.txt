@@ -1,0 +1,9 @@
+Covid-API verknüpfen
+Json auslesen
+In Konsole/Internet darstellen
+
+
+Land auswählen und die aktuellen Zahlen bekommen
+Darstellung der Zahlen
+README.md erstellen
+Logo erstellen
