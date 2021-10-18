@@ -1,9 +1,11 @@
-Covid-API verknüpfen
-Json auslesen
+Covid-API verknüpfen // Erledigt
+Json auslesen // Erledigt
 In Konsole/Internet darstellen
 
+---------------------------------------------------------------------------------------------
 
-Land auswählen und die aktuellen Zahlen bekommen
+Land auswählen und die aktuellen Zahlen bekommen //Erledigt
 Darstellung der Zahlen
 README.md erstellen
 Logo erstellen
+Weltweite Zahlen
