@@ -15,8 +15,12 @@ Von dieser API holen wir die Daten bezüglich den Coronazahlen.
 
 ## Anwendung
 
-Als erstes wird angegeben, ob man die globalen- oder die Daten eines einzelnen Landes will, in dem die zugewiesene Zahl eingibt.
+Als erstes wird festgelegt, ob man die globalen- oder die Daten eines einzelnen Landes will, in dem die zugewiesene Zahl eingibt.
 
-Gibt man die Zahl für die globalen Daten ein, so erhält man die aktuellen globalen Covidzahlen.
+0 = Covidzahlen eines bestimmten Landes
+1 = Covidzahlen der ganzen Welt
+2 = Covidzahlen eines bestimmten Landes, an einem bestimmten Datum
 
-Gibt man die Zahl für ein einzelnes Land ein, so wird man als nächstes gefragt über welches Land man informiert werden möchte.
+Gibt man die Zahl für ein bestimmtes Land ein (1), so muss man als nächstes angeben, über welches Land man informiert werden möchte.
+
+Gibt man die Zahl für ein bestimmtes Land, an einem bestimmten Datum ein (2), so muss man als nächstes angeben, welches Land und von welchem Tag.
