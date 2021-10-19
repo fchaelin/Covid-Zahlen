@@ -2,8 +2,6 @@
 
 include("functions_covid.php");
 
-
-
 $auswahl = array(
     "Länder-Zahlen",
     "Globale-Zahlen"
@@ -32,7 +30,7 @@ if (is_numeric($eingabe)) {
                 globaleZahlen();
                 break;
             case '2':
-                pass;
+                vergangenneZahlen();
                 break;
             case '3':
                 pass;
