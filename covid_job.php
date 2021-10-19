@@ -16,10 +16,10 @@ switch ($eingabe) {
         break;
     case '2':
         $land = $argv[2];
-        vergangeneZahlen($land);
+        landDatumZahlen($land);
         break;
     case '3':
-        pass;
+        globalDatumZahlen();
         break;
     default:
 }
