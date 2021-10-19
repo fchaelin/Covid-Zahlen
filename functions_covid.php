@@ -47,17 +47,16 @@ function landKuerzel($country)
 {
     $url = "https://api.first.org/data/v1/countries?pretty=true&limit=400";
     $response = loadData($url);
-    $response = array_change_key_case($response, CASE_UPPER);
     $country = strtoupper($country);
+    $response2 = $response['data'];
 
-    if (in_array($country, $response['DATA'])) {
-        if (strlen($country) == 2) {
-            $country = $response['DATA'][$country]['COUNTRY'];
-            echo "if strlen erfolgreich";
+    foreach ($response2 as $index => $value) {
+        if (strcmp($index, $country) == 0) {
+            $country = $response['data'][$country]['country'];
+            break;
         }
-        echo "if in array erfolgreich";
     }
-    echo $country;
+
     return $country;
 }
 
@@ -106,23 +105,60 @@ function globaleZahlen()
 }
 
 
-function vergangeneZahlen()
+function vergangeneZahlen($land)
 {
+    if (!empty($land)) {
+        $country = landKuerzel($land);
+    } else {
+        $country = readline("Land: ");
+    }
 
-    $requestedCountry = readline("Land: ");
+    switch ($country) {
+        case "usa":
+            $country = "us";
+            break;
+        case "america":
+            $country = "us";
+            break;
+        case "united states of america":
+            $country = "us";
+            break;
+        default:
+            $country = $country;
+    }
+
+    //$requestedCountry = readline("Land: ");
     $requestedDate = readline("Datum m(m)/d(d)/yyyy: ");
 
-    $urlConfirmed = "https://covid2019-api.herokuapp.com/v2/timeseries/confirmed";
+    $url = "https://covid2019-api.herokuapp.com/v2/timeseries/confirmed";
 
-    $responseConfirmed = loadData($urlconfirmed);
-    $responseDeaths = loadData($urldeaths);
+    $response = loadData($url);
 
-    $confirmedDate = $responseConfirmed['data']['TimeSeries'];
-    printf("Confirmed: %d" . PHP_EOL, $responseConfirmed);
-    printf("Deaths: %d" . PHP_EOL, $responseDeaths);
+    $country = strtolower($country);
+    $country = ucfirst($country);
 
-    writeFile($requestedCountry, $confirmedDate, $deathsConfirmed);
+    //strcmp($index, $country) == 0
 
+    foreach ($response['data'] as $index => $value) {
+        $countryName = $value['Country_Region'];
+
+        if (strcmp($country, $countryName) == 0) {
+            $countryNumber = $index;
+            break;
+        }
+    }
+
+    foreach ($response['data'][$countryNumber]['TimeSeries'] as $index => $value) {
+        $dateName = $value['date'];
+
+        if (strcmp($requestedDate, $dateName) == 0) {
+            $dateNumber = $index;
+            break;
+        }
+    }
+
+    $confirmed = $response['data'][$countryNumber]['TimeSeries'][$dateNumber]['value'];
+    printf("Confirmed: %d" . PHP_EOL, $confirmed);
+
+    //writeFile($country, $requestedDate, $confirmed);
 }
-
-
