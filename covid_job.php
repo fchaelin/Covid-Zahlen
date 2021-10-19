@@ -15,7 +15,8 @@ switch ($eingabe) {
         globaleZahlen();
         break;
     case '2':
-        vergangenneZahlen();
+        $land = $argv[2];
+        vergangeneZahlen($land);
         break;
     case '3':
         pass;
