@@ -6,6 +6,8 @@ In Konsole/Internet darstellen
 
 Land auswählen und die aktuellen Zahlen bekommen //Erledigt
 Darstellung der Zahlen
-README.md erstellen
+README.md erstellen // Denis in Bearbeitung
 Logo erstellen
-Weltweite Zahlen
+Weltweite Zahlen // Christopher Erledigt
+USA-Kompatibel USA-US / america - us / united states of america - us // Fabio in Bearbeitung
+Vortag-Zahlen speichern // Christopher in Bearbeitung
