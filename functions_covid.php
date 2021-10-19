@@ -5,8 +5,8 @@ function writeFile($areaName, $confirmed, $deaths)
     $template = file_get_contents("template.html");
 
     $template = str_replace("{Section1}", "<h2>Area: " . $areaName . "</h2>", $template);
-    $template = str_replace("{Section2}", "<h2>Confirmed: " . $confirmed . "</h2>", $template);
-    $template = str_replace("{Section3}", "<h2>Deaths: " . $deaths . "</h2>", $template);
+    $template = str_replace("{Section2}", "<h3>Confirmed: " . $confirmed . "</h3>", $template);
+    $template = str_replace("{Section3}", "<h3>Deaths: " . $deaths . "</h3>", $template);
 
     $filename = $areaName . ".html";
 
@@ -104,8 +104,7 @@ function globaleZahlen()
     writeFile("global", $confirmed, $deaths);
 }
 
-
-function vergangeneZahlen($land)
+function landDatumZahlen($land)
 {
     if (!empty($land)) {
         $country = landKuerzel($land);
@@ -131,8 +130,10 @@ function vergangeneZahlen($land)
     $requestedDate = readline("Datum m(m)/d(d)/yyyy: ");
 
     $url = "https://covid2019-api.herokuapp.com/v2/timeseries/confirmed";
+    $url2 = "https://covid2019-api.herokuapp.com/timeseries/deaths";
 
     $response = loadData($url);
+    $response2 = loaata($url2);
 
     $country = strtolower($country);
     $country = ucfirst($country);
@@ -148,6 +149,8 @@ function vergangeneZahlen($land)
         }
     }
 
+
+
     foreach ($response['data'][$countryNumber]['TimeSeries'] as $index => $value) {
         $dateName = $value['date'];
 
@@ -158,7 +161,13 @@ function vergangeneZahlen($land)
     }
 
     $confirmed = $response['data'][$countryNumber]['TimeSeries'][$dateNumber]['value'];
+    $deaths = $response2['deaths'][$countryNumber];
     printf("Confirmed: %d" . PHP_EOL, $confirmed);
 
     //writeFile($country, $requestedDate, $confirmed);
+}
+
+function globalDatumZahlen()
+{
+    echo "Test";
 }
