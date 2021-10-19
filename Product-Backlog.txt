@@ -7,7 +7,7 @@ In Konsole/Internet darstellen
 Land auswählen und die aktuellen Zahlen bekommen // Fabio/Christopher/Denis Erledigt
 Darstellung der Zahlen // Fabio in Bearbeitung
 README.md erstellen // Denis in Bearbeitung
-Logo erstellen
+Logo erstellen // Denis Erledigt
 Weltweite Zahlen // Christopher Erledigt
 USA-Kompatibel USA-US / america - us / united states of america - us // Fabio Erledigt
 Vortag-Zahlen speichern // Christopher in Bearbeitung
