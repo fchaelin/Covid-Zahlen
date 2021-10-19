@@ -10,7 +10,7 @@ function writeFile($filename, $total, $totaldeaths)
     $template = str_replace("{Section3.Title}", "", $template);
     $template = str_replace("{Section3.Content}", "", $template);
     // echo $template;
-    $myfile = fopen(htmls/$filename, "w") or die("Unable to open file!");
+    $myfile = fopen($filename, "w") or die("Unable to open file!");
     fwrite($myfile, $template);
     fclose($myfile);
 }
