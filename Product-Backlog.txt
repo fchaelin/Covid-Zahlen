@@ -1,6 +1,6 @@
 Covid-API verknüpfen // Erledigt
 Json auslesen // Erledigt
-In Konsole/Internet darstellen
+In Konsole/Internet darstellen // Fabio in Bearbeitung
 
 ---------------------------------------------------------------------------------------------
 
