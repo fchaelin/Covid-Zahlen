@@ -6,7 +6,7 @@ include("functions_covid.php");
 
 $auswahl = array(
     "Länder-Zahlen",
-    "noch unbekannt"
+    "Globale-Zahlen"
 );
 
 echo PHP_EOL;
@@ -29,18 +29,18 @@ if (is_numeric($eingabe)) {
                 landZahlen();
                 break;
             case '1':
-                nochUnbekant();
+                globaleZahlen();
                 break;
             case '2':
-                dreiReihe();
+                pass;
                 break;
             case '3':
-                subtraktion();
+                pass;
                 break;
             default:
         }
         echo PHP_EOL;
     }
 } else {
-    print "Ungültige Eingabe";
+    print "Ungültige Eingabe ._.";
 }
