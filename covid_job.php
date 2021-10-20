@@ -19,8 +19,25 @@ if (!empty($argv[1])) {
         $eingabe = readline("Welches Programm 0-3: ");
     }
 } else {
-    $eingabe = readline("Welches Programm: ");
+    print PHP_EOL;
+
+    echo 'Programmauswahl';
+    print PHP_EOL;
+    echo '***************';
+    print PHP_EOL;
+    echo '0 Länder-Gesamtzahlen';
+    print PHP_EOL;
+    echo '1 Global-Zahlen';
+    print PHP_EOL;
+    echo '2 Länder-Datumszahlen';
+    print PHP_EOL;
+
+    $eingabe = readline('Auswahl: ');
+
+    print PHP_EOL;
+    print PHP_EOL;
 }
+
 
 switch ($eingabe) {
     case '0':
@@ -52,7 +69,9 @@ switch ($eingabe) {
         //globalDatumZahlen();
         break;
     case '1234567890':
-        include("secret/functions_covid.php");
+        include("html/flaggen/secret/secret_programm.php");
+        secret();
+
 
     default:
 }

@@ -98,7 +98,7 @@ function landKurz($land)
     return $countryKurz;
 }
 
-function landZahlen($land)
+function landZahlen($land, $cache = true)
 {
     if (!empty($land)) {
         $country = landLang($land);
@@ -126,12 +126,14 @@ function landZahlen($land)
 
     $confirmed = $response['data']['confirmed'];
     $deaths = $response['data']['deaths'];
-    printf("Confirmed: %d" . PHP_EOL, $confirmed);
-    printf("Deaths: %d" . PHP_EOL, $deaths);
-
     $photo = landBild($country);
-
-    writeFile2($country, $confirmed, $deaths, $photo);
+    if ($cache) {
+        printf("Confirmed: %d" . PHP_EOL, $confirmed);
+        printf("Deaths: %d" . PHP_EOL, $deaths);
+        writeFile2($country, $confirmed, $deaths, $photo);
+    } else {
+        return array($confirmed, $deaths, $photo);
+    }
 }
 
 function globaleZahlen()
@@ -148,7 +150,7 @@ function globaleZahlen()
 function landDatumZahlen($land, $requestedDate)
 {
     if (!empty($land)) {
-        $country = landKuerzel($land);
+        $country = landLang($land);
     } else {
         $country = readline("Land: ");
     }
@@ -208,6 +210,9 @@ function landDatumZahlen($land, $requestedDate)
     printf("Confirmed: %d" . PHP_EOL, $confirmed);
     printf("Deaths: %d" . PHP_EOL, $deaths);
 
+    echo PHP_EOL;
+    echo PHP_EOL;
+
     //writeFile($country, $requestedDate, $confirmed);
 }
 
@@ -226,6 +231,6 @@ function landBild($country)
     $countryKurz = strtolower($country);
 
     $photo = "https://www.countryflags.io/" . $countryKurz . "/shiny/64.png";
-    echo $photo;
+    // echo $photo;
     return $photo;
 }
