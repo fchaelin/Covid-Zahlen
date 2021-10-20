@@ -4,9 +4,29 @@ function writeFile($areaName, $confirmed, $deaths)
 {
     $template = file_get_contents("template.html");
 
+    $filename = $areaName . ".html";
+
     $template = str_replace("{Section1}", "<h2>Area: " . $areaName . "</h2>", $template);
     $template = str_replace("{Section2}", "<h3>Confirmed: " . $confirmed . "</h3>", $template);
     $template = str_replace("{Section3}", "<h3>Deaths: " . $deaths . "</h3>", $template);
+    $template = str_replace("{Section4}", "", $template);
+
+    chdir("/opt/code/covid/html/");
+
+    $myfile = fopen($filename, "w") or die("Unable to open file!");
+    fwrite($myfile, $template);
+    fclose($myfile);
+}
+
+function writeFile2($areaName, $confirmed, $deaths, $photo)
+{
+    $template = file_get_contents("template.html");
+
+    $template = str_replace("{Section1}", "<h2>Area: " . $areaName . "</h2>", $template);
+    $template = str_replace("{Section2}", "<h3>Confirmed: " . $confirmed . "</h3>", $template);
+    $template = str_replace("{Section3}", "<h3>Deaths: " . $deaths . "</h3>", $template);
+
+    $template = str_replace("{Section4}", "<img src='" . $photo . "' alt='asdfd'>", $template);
 
     $filename = $areaName . ".html";
 
@@ -43,7 +63,7 @@ function loadData($url)
     return $response;
 }
 
-function landKuerzel($country)
+function landLang($country)
 {
     $url = "https://api.first.org/data/v1/countries?pretty=true&limit=400";
     $response = loadData($url);
@@ -60,10 +80,28 @@ function landKuerzel($country)
     return $country;
 }
 
+function landKurz($land)
+{
+    $url = "https://api.first.org/data/v1/countries?pretty=true&limit=400";
+    $response = loadData($url);
+    $land = strtolower($land);
+    $country = ucfirst($land);
+    $response2 = $response['data'];
+
+    foreach ($response2 as $index => $value) {
+        if (strcmp($response2[$index]['country'], $country) == 0) {
+            $countryKurz = $index;
+            break;
+        }
+    }
+    $countrykurz = ucfirst($countryKurz);
+    return $countryKurz;
+}
+
 function landZahlen($land)
 {
     if (!empty($land)) {
-        $country = landKuerzel($land);
+        $country = landLang($land);
     } else {
         $country = readline("Land: ");
     }
@@ -90,7 +128,10 @@ function landZahlen($land)
     $deaths = $response['data']['deaths'];
     printf("Confirmed: %d" . PHP_EOL, $confirmed);
     printf("Deaths: %d" . PHP_EOL, $deaths);
-    writeFile($country, $confirmed, $deaths);
+
+    $photo = landBild($country);
+
+    writeFile2($country, $confirmed, $deaths, $photo);
 }
 
 function globaleZahlen()
@@ -104,12 +145,16 @@ function globaleZahlen()
     writeFile("global", $confirmed, $deaths);
 }
 
-function landDatumZahlen($land)
+function landDatumZahlen($land, $requestedDate)
 {
     if (!empty($land)) {
         $country = landKuerzel($land);
     } else {
         $country = readline("Land: ");
+    }
+
+    if ($requestedDate == 0) {
+        $requestedDate = readline("Datum m(m)/d(d)/yy: ");
     }
 
     switch ($country) {
@@ -127,13 +172,13 @@ function landDatumZahlen($land)
     }
 
     //$requestedCountry = readline("Land: ");
-    $requestedDate = readline("Datum m(m)/d(d)/yyyy: ");
+
 
     $url = "https://covid2019-api.herokuapp.com/v2/timeseries/confirmed";
     $url2 = "https://covid2019-api.herokuapp.com/timeseries/deaths";
 
     $response = loadData($url);
-    $response2 = loaata($url2);
+    $response2 = loadData($url2);
 
     $country = strtolower($country);
     $country = ucfirst($country);
@@ -149,8 +194,6 @@ function landDatumZahlen($land)
         }
     }
 
-
-
     foreach ($response['data'][$countryNumber]['TimeSeries'] as $index => $value) {
         $dateName = $value['date'];
 
@@ -161,8 +204,9 @@ function landDatumZahlen($land)
     }
 
     $confirmed = $response['data'][$countryNumber]['TimeSeries'][$dateNumber]['value'];
-    $deaths = $response2['deaths'][$countryNumber];
+    $deaths = $response2['deaths'][$countryNumber][$requestedDate];
     printf("Confirmed: %d" . PHP_EOL, $confirmed);
+    printf("Deaths: %d" . PHP_EOL, $deaths);
 
     //writeFile($country, $requestedDate, $confirmed);
 }
@@ -170,4 +214,18 @@ function landDatumZahlen($land)
 function globalDatumZahlen()
 {
     echo "Test";
+}
+
+function landBild($country)
+{
+    if (strlen($country) != 2){
+        $country = landKurz($country);
+    } else {
+        $country = $country;
+    }
+    $countryKurz = strtolower($country);
+
+    $photo = "https://www.countryflags.io/" . $countryKurz . "/shiny/64.png";
+    echo $photo;
+    return $photo;
 }
