@@ -216,9 +216,30 @@ function landDatumZahlen($land, $requestedDate)
     //writeFile($country, $requestedDate, $confirmed);
 }
 
-function globalDatumZahlen()
+function globalDatumZahlen($requestedDate)
 {
-    echo "Test";
+    if ($requestedDate == 0) {
+        $requestedDate = readline("Datum m(m)/d(d)/yy: ");
+    }
+    $url = "https://covid2019-api.herokuapp.com/v2/timeseries/confirmed";
+
+    $response = loadData($url);
+
+
+    $summeConfirmed = 0;
+
+    foreach ($response['data'] as $index => $value) {
+        foreach ($value['TimeSeries'] as $index2 => $value2) {
+            $dateName = $value2['date'];
+
+            if (strcmp($requestedDate, $dateName) == 0) {
+                $summeConfirmed += $value2['value'];
+
+            }
+        }
+    }
+
+    printf("Confirmed: %d" . PHP_EOL, $summeConfirmed);
 }
 
 function landBild($country)
