@@ -9,7 +9,7 @@ Tag 1, 18/10/2021:
 
         Denis: Ich fand es gut, dass wir Angefangen haben in Gruppen zuarbeiten. Unser Anfang war jedoch schwer,
                 wir Probleme mit Git hatten. Schlussendlich aber konnten wir alle Probleme lösen.
-________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________
 Tag 2 19/10/2021:
 
         Christopher: Heute war ein sehr spannender Tag. Die Funktionen waren anspruchsvoll zu programmieren und
@@ -22,7 +22,7 @@ Tag 2 19/10/2021:
 
         Denis: Heute war eher ein mühsamer Tag, da ich nicht all zu grosse Arbeiten hatte. Ich werde das Morgen
                 auf jeden Fall ändern! Alles in allem sind wir heute gut weiter gekommen.
-________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________
 Tag 3 20/10/2021
 
         Christopher:
@@ -30,7 +30,7 @@ Tag 3 20/10/2021
         Fabio:
 
         Denis:
-________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________
 Tag 4 21/10/2021
 
         Christopher:
@@ -38,7 +38,7 @@ Tag 4 21/10/2021
         Fabio:
 
         Denis:
-________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________
 Tag 5 22/10/2021
 
         Christopher:
