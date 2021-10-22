@@ -17,9 +17,13 @@ Von dieser API holen wir die Daten bezüglich den Coronazahlen.
 
 Als erstes wird festgelegt, ob man die globalen- oder die Daten eines einzelnen Landes will, in dem die zugewiesene Zahl eingibt.
 
-0 = Covidzahlen eines bestimmten Landes\n
+
+0 = Covidzahlen eines bestimmten Landes
+
 1 = Covidzahlen der ganzen Welt
+
 2 = Covidzahlen eines bestimmten Landes, an einem bestimmten Datum
+
 
 Gibt man die Zahl für ein bestimmtes Land ein (1), so muss man als nächstes angeben, über welches Land man informiert werden möchte.
 
