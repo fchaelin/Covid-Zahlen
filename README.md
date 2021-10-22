@@ -5,7 +5,7 @@ Fabio Kaelin </p>
 Christopher Scheel </p>
 Denis Meyer
 
-[Teamlogo](https://github.com/fchaelin/Covid-Zahlen/blob/main/Screenshot%202021-10-19%20101009.png)
+![Teamlogo](https://github.com/fchaelin/Covid-Zahlen/blob/main/Screenshot%202021-10-19%20101009.png)
 
 Wir benutzen eine Covid API um globale Daten der Covidzahlen oder von den einzelnen Länder zu realisieren, so wie eine Darstellung dazu zu erstellen.
 So dass man die Zahlen der erkrankten und gestorbenen mit den anderen Ländern vergleichen kann.
