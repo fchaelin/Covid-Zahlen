@@ -26,7 +26,8 @@ function writeFile2($areaName, $confirmed, $deaths, $photo)
     $template = str_replace("{Section2}", "<h3>Confirmed: " . $confirmed . "</h3>", $template);
     $template = str_replace("{Section3}", "<h3>Deaths: " . $deaths . "</h3>", $template);
 
-    $template = str_replace("{Section4}", "<img src='" . $photo . "' alt='asdfd'>", $template);
+    $template = str_replace("{Section4}", "<img src='" . $photo . "' alt='Img'>", $template);
+    $template = str_replace("{Section4}", "<img width='100%' height='100%' src=' " . $photo . " '/>", $template);
 
     $filename = $areaName . ".html";
 
