@@ -25,7 +25,9 @@ Tag 2 19/10/2021:
 _________________________________________________________________________________________________________________
 Tag 3 20/10/2021
 
-        Christopher:
+        Christopher: Die Flaggen API ist eine sehr gute API, wo alle Flaggen drauf sind. Dies hat uns heute sehr
+                        viel geholfen, um die HTML Seite schöner darzustellen. Fabio hat sich noch mit CSS besch-
+                        äftigt, um die Flagge besser darzustellen
 
         Fabio: Die Style Möglichkeiten von einem Bild war ich mir gar nicht-bewusst, bis es mir Fabian gezeigt hat.
                 Jedoch hat es Fabian so gefallen das er mir sehr vieles mehr gezeigt hat und wir haben mit dem Bild
@@ -35,7 +37,8 @@ Tag 3 20/10/2021
 _________________________________________________________________________________________________________________
 Tag 4 21/10/2021
 
-        Christopher:
+        Christopher: Wir arbeiteten an den Eastereggs, haben uns aber entschlossen es komplett wegzulassen, weil es
+                        sonst zu viel Arbeti wäre.
 
         Fabio: Die Globalen Datumszahlen zu machen fand ich eine spannende Herausforderung und hat mir viel spass
                 gemacht. Ich fand es jedoch schade dass die Deaths-Zahlen die selben wie die Confirmed-Zahlen waren.
@@ -44,8 +47,8 @@ Tag 4 21/10/2021
 _________________________________________________________________________________________________________________
 Tag 5 22/10/2021
 
-        Christopher:
+        Christopher: Heute haben wir noch den letzten Feinschliff gemacht und uns für die Präsentation vorbereitet.
 
-        Fabio:
+        Fabio: Heute haben wir noch den Feinschliff gemacht. Dies war mehr als ich am Anfang gedacht habe.
 
         Denis: Krank
