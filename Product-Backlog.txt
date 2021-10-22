@@ -1,12 +1,12 @@
 Covid-API verknüpfen // Erledigt
 Json auslesen // Erledigt
-In Konsole/Internet darstellen // Fabio in Bearbeitung
+In Konsole/Internet darstellen // Fabio Erledigt
 
 ---------------------------------------------------------------------------------------------
 
 Land auswählen und die aktuellen Zahlen bekommen // Fabio/Christopher/Denis Erledigt
-Darstellung der Zahlen // Fabio in Bearbeitung
-README.md erstellen // Denis in Bearbeitung
+Darstellung der Zahlen // Fabio Erledigt
+README.md erstellen // Denis Erledigt
 Logo erstellen // Denis Erledigt
 Weltweite Zahlen // Christopher Erledigt
 USA-Kompatibel USA-US / america - us / united states of america - us // Fabio Erledigt
